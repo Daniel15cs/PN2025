@@ -31,7 +31,6 @@ void FormAuth::on_loginBtn_clicked(){
     QString serverName = "localhost";
     QString user = ui->loginEdit->text();
     QString password = ui->pwdEdit->text();
-    // "Resu.0987654321";
     if(user.isEmpty() || password.isEmpty()) {
         QMessageBox::warning(this, "Error", "Enter username/password");
         return;
@@ -45,17 +44,21 @@ void FormAuth::on_loginBtn_clicked(){
     db.setDatabaseName(connectionString);
 
     if (!db.open()) {
-        qDebug() << "Помилка підключення: " << db.lastError().text();
+        // qDebug() << "Помилка підключення: " << db.lastError().text();
         // ui->title->setText(db.lastError().text());
         QErrorMessage *msg = new QErrorMessage;
         msg->showMessage("Failed to connect. Error mesage: "+db.lastError().text());
     } else {
         // ui->title->setText("good");
-        qDebug() << "Підключення успішне!";
-        QMainWindow *mw = qobject_cast<QMainWindow*>(parent());
-        QWidget * wid = new DBViewer(mw,dbName);
-        wid->show();
-        this->close();
+        // qDebug() << "Підключення успішне!";
+        QSqlQuery q(db);
+        q.prepare("select has_perms_by_name(db_name(),'DATABASE','update')");
+        if(q.exec() && q.next()){
+            QMainWindow *mw = qobject_cast<QMainWindow*>(parent());
+            QWidget * wid = new DBViewer(mw,dbName,q.value(0).toInt());
+            wid->show();
+            this->close();
+        }
     }
 }
 void FormAuth::on_cancelBtn_clicked(){

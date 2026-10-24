@@ -55,7 +55,11 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QTableView" name="tableView"/>
+        <widget class="QTableView" name="tableView">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -165,19 +169,19 @@
         <number>0</number>
        </property>
        <property name="leftMargin">
-        <number>0</number>
+        <number>10</number>
        </property>
        <property name="topMargin">
-        <number>0</number>
+        <number>10</number>
        </property>
        <property name="rightMargin">
-        <number>0</number>
+        <number>10</number>
        </property>
        <property name="bottomMargin">
-        <number>0</number>
+        <number>10</number>
        </property>
        <item>
-        <widget class="QListWidget" name="listWidget">
+        <widget class="QListWidget" name="queryList">
          <property name="showDropIndicator" stdset="0">
           <bool>false</bool>
          </property>
@@ -226,76 +230,6 @@
          <property name="itemAlignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
          </property>
-         <item>
-          <property name="text">
-           <string>Новий елемент</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Новий елемент</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Новий елемент</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Новий елемент</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Новий елемент</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Новий елемент</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Новий елемент</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Новий елемент</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Новий елемент</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Новий елемент</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Новий елемент</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Новий елемент</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Новий елемент</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Новий елемент</string>
-          </property>
-         </item>
         </widget>
        </item>
        <item>
@@ -303,13 +237,22 @@
          <property name="spacing">
           <number>0</number>
          </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_5">
            <property name="topMargin">
-            <number>18</number>
+            <number>0</number>
            </property>
            <item>
-            <widget class="QTextBrowser" name="textBrowser">
+            <widget class="QTextBrowser" name="queryDesc">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="html">
               <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -317,11 +260,8 @@ p, li { white-space: pre-wrap; }
 hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    select pc.model, pc.ram,pc.screen,pc.price &lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    from laptop as pc&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    where pc.price &amp;gt; 1000;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select Query on the left panel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -333,11 +273,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
                <height>190</height>
               </size>
              </property>
-             <widget class="QPushButton" name="pushButton">
+             <widget class="QPushButton" name="startQueryBtn">
               <property name="geometry">
                <rect>
                 <x>10</x>
-                <y>124</y>
+                <y>80</y>
                 <width>80</width>
                 <height>41</height>
                </rect>
@@ -351,7 +291,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
           </layout>
          </item>
          <item>
-          <widget class="QTableView" name="tableView_2"/>
+          <widget class="QTableView" name="queryTable"/>
          </item>
         </layout>
        </item>
